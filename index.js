@@ -2,14 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import Card from "./components/NestedComp/Card";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import CompLC from "./Demos/CompLC";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <div>
+      <div>
+        {/*   <BrowserRouter>
+         
+            <CompLC></CompLC>
+        </BrowserRouter> */}
+        <App></App>
+      </div>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
