@@ -1,5 +1,12 @@
+import BasicForm from "../Forms/BasicForm";
+
 const Welcome = () => {
-  return <h1>Welcome</h1>;
+  return (
+    <div>
+      <h1>Welcome to the page </h1>
+      <BasicForm></BasicForm>
+    </div>
+  );
 };
 
 export default Welcome;
