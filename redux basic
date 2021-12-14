@@ -1,0 +1,56 @@
+const redux = require("redux");
+
+const createStore = redux.createStore;
+
+const BUY_BRIYANI = "BUY_BRIYANI";
+
+function buyBriyani() {
+  return {
+    type: BUY_BRIYANI,
+    info: "First redux action"
+  };
+}
+
+// const initialState = {
+//   numOfBriyanis: 10,
+//   numOfIceCreams: 20
+// }
+
+const initialBriyaniState = {
+  numOfBriyanis: 10
+};
+
+// const reducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case BUY_CAKE: return {
+//       ...state,
+//       numOfBriyanis: state.numOfBriyanis - 1
+//     }
+//     case BUY_ICECREAM: return {
+//       ...state,
+//       numOfIceCreams: state.numOfIceCreams - 1
+//     }
+//     default: return state
+//   }
+// }
+
+const BriyaniReducer = (state = initialBriyaniState, action) => {
+  switch (action.type) {
+    case BUY_BRIYANI:
+      return {
+        ...state,
+        numOfBriyanis: state.numOfBriyanis - 1
+      };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(BriyaniReducer);
+console.log("Initial State ", store.getState());
+const unsubscribe = store.subscribe(() => {});
+store.dispatch(buyBriyani());
+store.dispatch(buyBriyani());
+store.dispatch(buyBriyani());
+console.log("sate ", store.getState());
+unsubscribe();
